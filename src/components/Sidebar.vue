@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue';
 import { useNotes } from '../composables/useNotes';
 
-const { notes, setCurrentNote, clearCurrentNote, deleteNote, currentNoteId } = useNotes();
+const { notes, setCurrentNote, clearCurrentNote, deleteNote, currentNoteId, saveNote } = useNotes();
 
 const isOpen = ref(false);
 const searchQuery = ref('');
@@ -27,7 +27,8 @@ const selectNote = (noteId) => {
 };
 
 const createNewNote = () => {
-  clearCurrentNote();
+  const newNote = saveNote('# New Note\n\nStart writing...');
+  setCurrentNote(newNote.id);
   isOpen.value = false; // Close sidebar
 };
 
