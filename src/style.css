@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Milkdown overrides if needed */
+.milkdown .editor {
+    max-width: 100% !important;
+    padding: 0 !important;
+}

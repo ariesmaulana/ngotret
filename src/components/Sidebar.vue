@@ -142,7 +142,7 @@ const handleDelete = (e, noteId) => {
 <style scoped>
 .sidebar-toggle {
   position: fixed;
-  top: 20px;
+  top: 40px;
   left: 20px;
   width: 56px;
   height: 56px;
@@ -480,7 +480,7 @@ const handleDelete = (e, noteId) => {
   .sidebar-toggle {
     width: 48px;
     height: 48px;
-    top: 12px;
+    top: 24px;
     left: 12px;
   }
 }

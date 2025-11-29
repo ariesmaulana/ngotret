@@ -90,5 +90,7 @@ defineExpose({
 </script>
 
 <template>
-  <Milkdown :key="editorKey" />
+  <div class="w-[90%] max-w-4xl mx-auto py-12 min-h-screen">
+    <Milkdown :key="editorKey" />
+  </div>
 </template>
