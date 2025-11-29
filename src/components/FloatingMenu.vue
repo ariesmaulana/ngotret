@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import { useNotes } from '../composables/useNotes';
 
-const { saveNote, updateNote, currentNoteId, currentNote } = useNotes();
+const { saveNote, updateNote, currentNoteId, currentNote, setCurrentNote } = useNotes();
 const showExportMenu = ref(false);
 
 // Props to access editor
@@ -75,14 +75,21 @@ const handleExportMd = () => {
   showExportMenu.value = false;
 };
 
+const handleNewNote = () => {
+  const newNote = saveNote('# New Note\n\nStart writing...');
+  setCurrentNote(newNote.id);
+};
+
 const handleKeydown = (e) => {
   if ((e.metaKey || e.ctrlKey) && e.key === 's') {
     e.preventDefault();
     handleSave();
-  }
-  if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
+  } else if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
     e.preventDefault();
     handleExportMd();
+  } else if ((e.metaKey || e.ctrlKey) && e.key === 'n') {
+    e.preventDefault();
+    handleNewNote();
   }
 };
 
